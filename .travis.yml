@@ -4,6 +4,21 @@ matrix:
   include:
     - os: osx
       env: TOOLSET=clang COMPILER=clang++
+
+  - os: linux
+    env: CMAKE=ON COMPILER=clang++-3.8
+    addons:
+      apt:
+        packages:
+        - clang-3.8
+        - libstdc++-5-dev
+        - gdb
+        - bc
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise
+
+
   # - os: osx
   #   env: CMAKE=ON COMPILER=clang++
   # - os: osx

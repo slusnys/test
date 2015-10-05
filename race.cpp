@@ -1,3 +1,20 @@
+#define BOOST_TEST_MODULE MyTest
+#include <boost/test/included/unit_test.hpp>
+#include <iostream>
+//#include <boost/test/minimal.hpp>
+
+BOOST_AUTO_TEST_SUITE(all)
+
+using namespace boost::unit_test;
+
+
+BOOST_AUTO_TEST_CASE(test1)
+{
+  //  std::cout << "Test1" << std::endl;
+  BOOST_CHECK(true);
+}
+
+/*
 #include <atomic>
 #include <memory>
 #include <functional>
@@ -33,3 +50,6 @@ int main()
   t1.join();
   t2.join();
 }
+*/
+
+BOOST_AUTO_TEST_SUITE_END()

@@ -8,10 +8,10 @@ language: c++
 sudo: false
 env:
   global:
-  - secure: "A27gNApbElRr3fqZXifVPKkB+xbxMYDFINGk2RDqul1X1Zg51M7e+ohHO9BwhEYiOGmCnFfbsVUP11XyFIH6kzWmxw9mhy8YDglbYfeyu6grxtU3mHElz8W7wO5OCPFPWXQf23sVYE8AWyjj6M+t3oyLJhPXCcYI7uMHEQm10CQ=" # GH_TOKEN
-  - secure: "S1svDigJfTlkxkkp14OOiWje6nT1j06k3cAAvbnI6lNGbf1VxQlJ/Q5SAxEV8ITYvDnJGy/yaoT/tipa5pgFVJ2qpAx/zo8oWGfDAyBSk8LWzuocU5rShvq3eJDJW4199RSdGalXtS1C+7hohJNSy9QP4iODvQA5j90+fbCPdh0=" # BII_PASSWORD
-  - secure: "eTBgFApNEFiNdpyV8wmGR0VQG8UgGOWBARyuGl7HPkz7A1pAMlUJM+U/kVSwSNqTroNThc223FSbQc6WM3DGXk+QPrOR7fdpKZSzlBAbbAN9BtpqDDbevTO22988t9rSzeyJhjVeUOpggww2GgyQqLiVdoGnLJzS7GWlYmhbtcM=" # COVERALLS_REPO_TOKEN
-  - BII_USER=krzysztofjusiak
+#  - secure: "A27gNApbElRr3fqZXifVPKkB+xbxMYDFINGk2RDqul1X1Zg51M7e+ohHO9BwhEYiOGmCnFfbsVUP11XyFIH6kzWmxw9mhy8YDglbYfeyu6grxtU3mHElz8W7wO5OCPFPWXQf23sVYE8AWyjj6M+t3oyLJhPXCcYI7uMHEQm10CQ=" # GH_TOKEN
+#  - secure: "S1svDigJfTlkxkkp14OOiWje6nT1j06k3cAAvbnI6lNGbf1VxQlJ/Q5SAxEV8ITYvDnJGy/yaoT/tipa5pgFVJ2qpAx/zo8oWGfDAyBSk8LWzuocU5rShvq3eJDJW4199RSdGalXtS1C+7hohJNSy9QP4iODvQA5j90+fbCPdh0=" # BII_PASSWORD
+#  - secure: "eTBgFApNEFiNdpyV8wmGR0VQG8UgGOWBARyuGl7HPkz7A1pAMlUJM+U/kVSwSNqTroNThc223FSbQc6WM3DGXk+QPrOR7fdpKZSzlBAbbAN9BtpqDDbevTO22988t9rSzeyJhjVeUOpggww2GgyQqLiVdoGnLJzS7GWlYmhbtcM=" # COVERALLS_REPO_TOKEN
+#  - BII_USER=krzysztofjusiak
   - VALGRIND=--memcheck="valgrind --leak-check=full --error-exitcode=1"
 
 branches:
@@ -263,6 +263,7 @@ install:
   && export LD_LIBRARY_PATH="${TRAVIS_BUILD_DIR}/libcxx/lib:$LD_LIBRARY_PATH"; fi
 
 script:
+        cmake CMakeLists.txt
         make
 #               
 # - if [ "${TOOLSET}" != "" ]; then (cd test && ../build/b2 -sBOOST_ROOT=../build -j2

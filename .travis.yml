@@ -22,12 +22,12 @@ branches:
 matrix:
   fast_finish: true
   include:
-  - os: linux
-    env: DOCUMENTATION=ON
-    addons:
-      apt:
-        packages:
-        - xsltproc
+  # - os: linux
+  #   env: DOCUMENTATION=ON
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - xsltproc
   # - os: linux
   #   env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=/usr/local/clang-3.4/bin/clang++
   #   addons:
@@ -251,8 +251,8 @@ before_script:
 - git config --global push.default simple
 - (cd build && ./bootstrap.sh)
 
-before_install:
-  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
+#before_install:
+#  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
 
 install:
 - export CXX="${COMPILER}"

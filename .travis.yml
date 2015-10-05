@@ -41,209 +41,209 @@ matrix:
         sources:
         - ubuntu-toolchain-r-test
         - llvm-toolchain-precise-3.4
-  - os: linux
-    env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=/usr/local/clang-3.4/bin/clang++
-    addons:
-      apt:
-        packages:
-        - clang-3.4
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.4
-  - os: linux
-    env: TOOLSET=clang-3.4 VARIANT=analyze COMPILER=/usr/local/clang-3.4/bin/clang++
-    addons:
-      apt:
-        packages:
-        - clang-3.4
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.4
-  - os: linux
-    env: TOOLSET=clang-3.5 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.5
-    addons:
-      apt:
-        packages:
-        - clang-3.5
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.5
-  - os: linux
-    env: TOOLSET=clang-3.5 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.5
-    addons:
-      apt:
-        packages:
-        - clang-3.5
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.5
-  - os: linux
-    env: TOOLSET=clang-3.6 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.6
-    addons:
-      apt:
-        packages:
-        - clang-3.6
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.6
-  - os: linux
-    env: TOOLSET=clang-3.6 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.6
-    addons:
-      apt:
-        packages:
-        - clang-3.6
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.6
-  - os: linux
-    env: TOOLSET=clang-3.7 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.7
-    addons:
-      apt:
-        packages:
-        - clang-3.7
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.7
-  - os: linux
-    env: TOOLSET=clang-3.7 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.7
-    addons:
-      apt:
-        packages:
-        - clang-3.7
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.7
-  - os: linux
-    env: CMAKE=ON COMPILER=clang++-3.7
-    addons:
-      apt:
-        packages:
-        - clang-3.7
-        - libstdc++-5-dev
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.7
-  - os: linux
-    env: TOOLSET=clang-3.8 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.8
-    addons:
-      apt:
-        packages:
-        - clang-3.8
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise
-  - os: linux
-    env: TOOLSET=clang-3.8 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.8
-    addons:
-      apt:
-        packages:
-        - clang-3.8
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise
-  - os: linux
-    env: CMAKE=ON COMPILER=clang++-3.8
-    addons:
-      apt:
-        packages:
-        - clang-3.8
-        - libstdc++-5-dev
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise
-  - os: linux
-    env: TOOLSET=gcc-5 GCOV=gcov-5 VARIANT=coverage MEMCHECK=${VALGRIND} BIICODE=ON COMPILER=g++-5
-    addons:
-      apt:
-        packages:
-        - g++-5
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        sources:
-        - ubuntu-toolchain-r-test
-  - os: linux
-    env: TOOLSET=gcc-5 VARIANT=analyze COMPILER=g++-5
-    addons:
-      apt:
-        packages:
-        - g++-5
-        - libstdc++-5-dev
-        - gdb
-        sources:
-        - ubuntu-toolchain-r-test
-  - os: linux
-    env: TOOLSET=gcc-5 BENCHMARK=QUICK COMPILER=g++-5
-    addons:
-      apt:
-        packages:
-        - g++-5
-        - libstdc++-5-dev
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-  - os: linux
-    env: CMAKE=ON BENCHMARK=ON COMPILER=g++-5
-    addons:
-      apt:
-        packages:
-        - g++-5
-        - libstdc++-5-dev
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-  - os: osx
-    env: TOOLSET=clang COMPILER=clang++
-  - os: osx
-    env: CMAKE=ON COMPILER=clang++
-  - os: osx
-    osx_image: xcode7
-    env: TOOLSET=clang COMPILER=clang++
-  - os: osx
-    osx_image: xcode7
-    env: CMAKE=ON BENCHMARK=ON COMPILER=clang++
+  # - os: linux
+  #   env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=/usr/local/clang-3.4/bin/clang++
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.4
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.4
+  #         - os: linux
+  #   env: TOOLSET=clang-3.4 VARIANT=analyze COMPILER=/usr/local/clang-3.4/bin/clang++
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.4
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.4
+  # - os: linux
+  #   env: TOOLSET=clang-3.5 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.5
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.5
+  # - os: linux
+  #   env: TOOLSET=clang-3.5 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.5
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.5
+  # - os: linux
+  #   env: TOOLSET=clang-3.6 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.6
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.6
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.6
+  # - os: linux
+  #   env: TOOLSET=clang-3.6 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.6
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.6
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.6
+  # - os: linux
+  #   env: TOOLSET=clang-3.7 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.7
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.7
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.7
+  # - os: linux
+  #   env: TOOLSET=clang-3.7 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.7
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.7
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.7
+  # - os: linux
+  #   env: CMAKE=ON COMPILER=clang++-3.7
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.7
+  #       - libstdc++-5-dev
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.7
+  # - os: linux
+  #   env: TOOLSET=clang-3.8 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=clang++-3.8
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.8
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise
+  # - os: linux
+  #   env: TOOLSET=clang-3.8 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=clang++-3.8
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.8
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise
+  # - os: linux
+  #   env: CMAKE=ON COMPILER=clang++-3.8
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.8
+  #       - libstdc++-5-dev
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise
+  # - os: linux
+  #   env: TOOLSET=gcc-5 GCOV=gcov-5 VARIANT=coverage MEMCHECK=${VALGRIND} BIICODE=ON COMPILER=g++-5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - g++-5
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  # - os: linux
+  #   env: TOOLSET=gcc-5 VARIANT=analyze COMPILER=g++-5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - g++-5
+  #       - libstdc++-5-dev
+  #       - gdb
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  # - os: linux
+  #   env: TOOLSET=gcc-5 BENCHMARK=QUICK COMPILER=g++-5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - g++-5
+  #       - libstdc++-5-dev
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  # - os: linux
+  #   env: CMAKE=ON BENCHMARK=ON COMPILER=g++-5
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - g++-5
+  #       - libstdc++-5-dev
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  # - os: osx
+  #   env: TOOLSET=clang COMPILER=clang++
+  # - os: osx
+  #   env: CMAKE=ON COMPILER=clang++
+  # - os: osx
+  #   osx_image: xcode7
+  #   env: TOOLSET=clang COMPILER=clang++
+  # - os: osx
+  #   osx_image: xcode7
+  #   env: CMAKE=ON BENCHMARK=ON COMPILER=clang++
 
 before_script:
 - git config --global user.name "Travis-CI"
@@ -271,7 +271,7 @@ script:
   .. && cmake --build . && travis_wait ctest --output-on-failure); fi
 - if [ "${TRAVIS_BRANCH}" == "cpp14" ] && [ "${DOCUMENTATION}" != "" ]; then (git
   clone --quiet --recursive --depth=1 --single-branch https://github.com/boostorg/boost.git
-  && cd boost && ./bootstrap.sh && ./b2 headers && mkdir libs/di && cp -r ../build ../doc ../example ../include libs/di
+  && cd libs/boost && ./bootstrap.sh && ./b2 headers && mkdir libs/di && cp -r ../build ../doc ../example ../include libs/di
   && cd libs/di/doc && ../build/b2 -sBOOST_ROOT=../build && TRY_IT_ONLINE=ON scripts/update_html.sh
   && git clone https://github.com/krzysztof-jusiak/di.git
   && cd di && git checkout -b gh-pages -t origin/gh-pages && git reset --hard

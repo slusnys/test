@@ -22,7 +22,7 @@ void thread2()
 {
   for (uint32_t i = 0; i < LOOPS; i++)
   {
-    variable = (i + 1) % 2;
+    variable = (i + 3) % 2;
   }  
 }
 

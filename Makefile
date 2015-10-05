@@ -1,2 +1,3 @@
 all: race
-CPPFLAGS=-I/opt/local/include/ -std=c++11
+CXX=c++
+CPPFLAGS= -I/opt/local/include/ -std=c++11

@@ -27,7 +27,7 @@ before_script:
 
 before_install:
 #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq boost); fi
+  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
 
 
 install:

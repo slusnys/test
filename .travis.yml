@@ -179,18 +179,18 @@ matrix:
   #       sources:
   #       - ubuntu-toolchain-r-test
   #       - llvm-toolchain-precise
-  # - os: linux
-  #   env: CMAKE=ON COMPILER=clang++-3.8
-  #   addons:
-  #     apt:
-  #       packages:
-  #       - clang-3.8
-  #       - libstdc++-5-dev
-  #       - gdb
-  #       - bc
-  #       sources:
-  #       - ubuntu-toolchain-r-test
-  #       - llvm-toolchain-precise
+  - os: linux
+    env: CMAKE=ON COMPILER=clang++-3.8
+    addons:
+      apt:
+        packages:
+        - clang-3.8
+        - libstdc++-5-dev
+        - gdb
+        - bc
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise
   # - os: linux
   #   env: TOOLSET=gcc-5 GCOV=gcov-5 VARIANT=coverage MEMCHECK=${VALGRIND} BIICODE=ON COMPILER=g++-5
   #   addons:
@@ -234,8 +234,11 @@ matrix:
   #       - bc
   #       sources:
   #       - ubuntu-toolchain-r-test
-  - os: osx
-    env: TOOLSET=clang COMPILER=clang++
+
+#- os: osx
+#    env: TOOLSET=clang COMPILER=clang++
+
+
   # - os: osx
   #   env: CMAKE=ON COMPILER=clang++
   # - os: osx

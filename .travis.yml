@@ -28,19 +28,19 @@ matrix:
       apt:
         packages:
         - xsltproc
-  - os: linux
-    env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=/usr/local/clang-3.4/bin/clang++
-    addons:
-      apt:
-        packages:
-        - clang-3.4
-        - libstdc++-5-dev
-        - valgrind
-        - gdb
-        - bc
-        sources:
-        - ubuntu-toolchain-r-test
-        - llvm-toolchain-precise-3.4
+  # - os: linux
+  #   env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} BENCHMARK=QUICK COMPILER=/usr/local/clang-3.4/bin/clang++
+  #   addons:
+  #     apt:
+  #       packages:
+  #       - clang-3.4
+  #       - libstdc++-5-dev
+  #       - valgrind
+  #       - gdb
+  #       - bc
+  #       sources:
+  #       - ubuntu-toolchain-r-test
+  #       - llvm-toolchain-precise-3.4
   # - os: linux
   #   env: TOOLSET=clang-3.4 MEMCHECK=${VALGRIND} LIBCXX=ON COMPILER=/usr/local/clang-3.4/bin/clang++
   #   addons:
@@ -234,8 +234,8 @@ matrix:
   #       - bc
   #       sources:
   #       - ubuntu-toolchain-r-test
-  # - os: osx
-  #   env: TOOLSET=clang COMPILER=clang++
+  - os: osx
+    env: TOOLSET=clang COMPILER=clang++
   # - os: osx
   #   env: CMAKE=ON COMPILER=clang++
   # - os: osx

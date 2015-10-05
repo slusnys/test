@@ -36,11 +36,3 @@ script:
 -        make
 -        ./race
 
-notifications:
-  webhooks:
-    urls:
-    - https://webhooks.gitter.im/e/743f46341bea58bbe3ca
-  on_success: change
-  on_failure: always
-  on_start: false
-

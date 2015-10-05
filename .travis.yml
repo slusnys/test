@@ -251,8 +251,8 @@ before_script:
 - git config --global push.default simple
 - (cd build && ./bootstrap.sh)
 
-#before_install:
-#  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install cmake boost); fi
+before_install:
+  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
 
 install:
 - export CXX="${COMPILER}"

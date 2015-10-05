@@ -5,9 +5,9 @@ matrix:
     - os: osx
       env: TOOLSET=clang COMPILER=clang++
 
-  - os: linux
-    env: CMAKE=ON COMPILER=clang++-3.8
-    addons:
+    - os: linux
+      env: CMAKE=ON COMPILER=clang++-3.8
+      addons:
       apt:
         packages:
         - clang-3.8

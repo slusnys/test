@@ -265,6 +265,7 @@ install:
 script:
 -        cmake CMakeLists.txt
 -        make
+-        ./race
 #               
 # - if [ "${TOOLSET}" != "" ]; then (cd test && ../build/b2 -sBOOST_ROOT=../build -j2
 #   -q --toolset=${TOOLSET} debug-symbols=off ${VARIANT} ${MEMCHECK} cxxflags=" $CXXFLAGS" linkflags=" $LDFLAGS"); fi

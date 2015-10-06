@@ -85,13 +85,15 @@ matrix:
 
     # todo: we must link with libc++ and compile boost test
     - os: linux
-      env: COMPILER=clang++
+      env: COMPILER=clang++3.7
       addons:
         apt:
           sources:
           - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise-3.7
           packages:
-          - clang
+          - clang-3.7
+          - libstdc++-5-dev
 
 before_script:
 - git config --global user.name "Travis-CI"

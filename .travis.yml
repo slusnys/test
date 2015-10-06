@@ -25,20 +25,32 @@ before_script:
 - git config --global push.default simple
 - (cd build && ./bootstrap.sh)
 
-before_install:
-#  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+    - clang
+    
+# before_install:
+# #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
+#   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
 
 
-# install:
-# - export CXX="${COMPILER}"
-# - if [ "${LIBCXX}" != "" ]; then (svn --quiet co http://llvm.org/svn/llvm-project/libcxx/trunk libcxx
-#   && cd libcxx/lib && ./buildit && ln -f -s libc++.so.1.0 libc++.so.1)
-#   && export CXXFLAGS="-stdlib=libc++ -I${TRAVIS_BUILD_DIR}/libcxx/include"
-#   && export LDFLAGS="-L${TRAVIS_BUILD_DIR}/libcxx/lib -lc++"
-#   && export LD_LIBRARY_PATH="${TRAVIS_BUILD_DIR}/libcxx/lib:$LD_LIBRARY_PATH"; fi
+# # install:
+# # - export CXX="${COMPILER}"
+# # - if [ "${LIBCXX}" != "" ]; then (svn --quiet co http://llvm.org/svn/llvm-project/libcxx/trunk libcxx
+# #   && cd libcxx/lib && ./buildit && ln -f -s libc++.so.1.0 libc++.so.1)
+# #   && export CXXFLAGS="-stdlib=libc++ -I${TRAVIS_BUILD_DIR}/libcxx/include"
+# #   && export LDFLAGS="-L${TRAVIS_BUILD_DIR}/libcxx/lib -lc++"
+# #   && export LD_LIBRARY_PATH="${TRAVIS_BUILD_DIR}/libcxx/lib:$LD_LIBRARY_PATH"; fi
 
 script:
+-       $CXX --version
 -        make
 -        ./race
 

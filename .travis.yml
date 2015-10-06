@@ -54,7 +54,7 @@ matrix:
 
     - os: linux
       env: COMPILER=g++-5 VALGRIND_ENABLED=1
-            addons:
+      addons:
         apt:
           sources:
           - ubuntu-toolchain-r-test

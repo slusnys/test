@@ -53,6 +53,7 @@ install:
 - if [ "$COMPILER" != "" ]; then export CXX=$COMPILER ; fi
     
 script:
--        make
--        if [ "$VALGRIND_ENABLED" == 1 ]; then valgrind --leak-check=full --error-exitcode=1 ./race ; else ./race ; fi
+- make
+- if [ "$VALGRIND_ENABLED" == 1 ]; then valgrind --leak-check=full --error-exitcode=1 ./race ; else ./race ; fi
+- scan-build --version    
 

@@ -10,22 +10,21 @@ before_script:
 - git config --global user.name "Travis-CI"
 - git config --global user.email "travis@ci.net"
 - git config --global push.default simple
-- (cd build && ./bootstrap.sh)
 
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++" CC="gcc"; fi
+- if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc"; fi
 addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
     packages:
-    - gcc
-    - g++
+    - gcc-5
+    - g++-5
 #    - clang
     
 before_install:
 # #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
-   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
+   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test1.48-dev); fi
 
 
 # # install:

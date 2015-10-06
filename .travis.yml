@@ -85,7 +85,7 @@ matrix:
 
     # todo: we must link with libc++ and compile boost test
     - os: linux
-      env: COMPILER=clang++
+      env: COMPILER=clang++ TOOLSET=clang-3.7 TOOLCHAIN=clang-3.7
       addons:
         apt:
           sources:

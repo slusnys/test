@@ -7,7 +7,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++
 
     - os: linux
-      env: TOOLSET=clang-3.4
+      env: TOOLSET=clang-3.8
 
 
   # - os: osx

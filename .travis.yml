@@ -13,6 +13,14 @@ matrix:
       env: COMPILER=clang++ TOOLCHAIN=analyze
       osx_image: xcode7
 
+    - os: osx
+      env: COMPILER=clang++ TSAN=1
+      osx_image: xcode7
+
+    - os: osx
+      env: COMPILER=clang++ ASAN=1
+      osx_image: xcode7
+
     - os: linux
       env: COMPILER=g++-5
       addons:
@@ -34,7 +42,27 @@ matrix:
           - g++-5
           - valgrind
 
-    
+    - os: linux
+      env: COMPILER=g++-5 ASAN=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
+
+    - os: linux
+      env: COMPILER=g++-5 TSAN=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
+
+
     # todo: we must link with libc++ and compile boost test
     # - os: linux
     #   env: COMPILER=clang
@@ -57,6 +85,5 @@ install:
 - if [ "$COMPILER" != "" ]; then export CXX=$COMPILER ; fi
     
 script:
-- make
-- ./.travis.sh
+- make && ./.travis.sh
 

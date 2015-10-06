@@ -7,6 +7,14 @@ ifeq ($(TOOLCHAIN),analyze)
 	CPPFLAGS+=--analyze
 endif
 
+ifeq ($(TSAN),1)
+	CPPFLAGS+=-fsanitize=thread
+endif
+
+ifeq ($(ASAN),1)
+	CPPFLAGS+=-fsanitize=address
+endif
+
 race: race.cpp
 
 # todo: consider compiling with -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-inline to improve the

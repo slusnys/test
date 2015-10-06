@@ -36,9 +36,9 @@ addons:
     - g++-4.8
     - clang
     
-# before_install:
+before_install:
 # #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi
-#   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
+   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test-dev); fi
 
 
 # # install:

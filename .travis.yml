@@ -12,7 +12,7 @@ before_script:
 - git config --global push.default simple
 
 install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc"; fi
+- if [ "$CXX" = "g++" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then export CXX="g++-5" CC="gcc"; fi
 addons:
   apt:
     sources:
@@ -20,7 +20,7 @@ addons:
     packages:
     - gcc-5
     - g++-5
-#    - clang
+    - clang
     
 before_install:
 # #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install boost); fi

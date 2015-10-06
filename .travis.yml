@@ -3,90 +3,89 @@ sudo: required
 matrix:
   fast_finish: true
   include:
-    # - os: osx
+    - os: osx
 
+    - os: osx
+      env: COMPILER=clang++
+      osx_image: xcode7
+
+    - os: osx
+      env: COMPILER=clang++ TOOLCHAIN=analyze
+      osx_image: xcode7
+
+    # unsupported
     # - os: osx
-    #   env: COMPILER=clang++
+    #   env: COMPILER=clang++ TSAN=1
     #   osx_image: xcode7
 
-    # - os: osx
-    #   env: COMPILER=clang++ TOOLCHAIN=analyze
-    #   osx_image: xcode7
+    - os: osx
+      env: COMPILER=clang++ ASAN=1
+      osx_image: xcode7
 
-    # # unsupported
-    # # - os: osx
-    # #   env: COMPILER=clang++ TSAN=1
-    # #   osx_image: xcode7
+    - os: linux
+      env: COMPILER=g++-4.8
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-4.8
+          - g++-4.8
 
-    # - os: osx
-    #   env: COMPILER=clang++ ASAN=1
-    #   osx_image: xcode7
+    - os: linux
+      env: COMPILER=g++-4.9
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-4.9
+          - g++-4.9
 
-    # - os: linux
-    #   env: COMPILER=g++-4.8
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-4.8
-    #       - g++-4.8
+    - os: linux
+      env: COMPILER=g++-5
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
 
-    # - os: linux
-    #   env: COMPILER=g++-4.9
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-4.9
-    #       - g++-4.9
+    - os: linux
+      env: COMPILER=g++-5 VALGRIND_ENABLED=1
+            addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
+          - valgrind
 
-    # - os: linux
-    #   env: COMPILER=g++-5
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-5
-    #       - g++-5
+    - os: linux
+      env: COMPILER=g++-5 ASAN=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
 
-    # - os: linux
-    #   env: COMPILER=g++-5 VALGRIND_ENABLED=1
-    #         addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-5
-    #       - g++-5
-    #       - valgrind
+    - os: linux
+      env: COMPILER=g++-5 TSAN=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
 
-    # - os: linux
-    #   env: COMPILER=g++-5 ASAN=1
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-5
-    #       - g++-5
-
-    # - os: linux
-    #   env: COMPILER=g++-5 TSAN=1
-    #   addons:
-    #     apt:
-    #       sources:
-    #       - ubuntu-toolchain-r-test
-    #       packages:
-    #       - gcc-5
-    #       - g++-5
-
-    # todo: we must link with libc++ and compile boost test
     - os: linux
       compiler: clang
-      env: COMPILER=clang++-3.7 TOOLSET=clang-3.7 TOOLCHAIN=clang-3.7
+      env: COMPILER=clang++-3.7 
       addons:
         apt:
           sources:
@@ -106,5 +105,5 @@ install:
     
 script:
 - $CXX --version
-- make && ./.travis.sh
+- make -j3 && ./.travis.sh
 

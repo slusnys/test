@@ -29,12 +29,12 @@ before_script:
 - git config --global user.email "travis@ci.net"
 - git config --global push.default simple
 
-install:
-- if [ "$TRAVIS_OS_NAME" == "linux" ]; then export CXX=COMPILER ; fi
-    
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test1.48-dev); fi
 
+install:
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then export CXX=$COMPILER ; fi
+    
 script:
 -       $CXX --version
 -        make

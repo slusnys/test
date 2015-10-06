@@ -1,2 +1,5 @@
 all: race
-CPPFLAGS=-I/opt/local/include/ -std=c++11
+CPPFLAGS+=-I/opt/local/include/ -std=c++11 -g -O2
+
+# todo: consider compiling with -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-inline to improve the
+# usefulness of valgrind's error output

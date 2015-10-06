@@ -85,7 +85,7 @@ matrix:
 
     # todo: we must link with libc++ and compile boost test
     - os: linux
-      env: COMPILER=clang++3.7
+      env: COMPILER=clang++
       addons:
         apt:
           sources:
@@ -104,5 +104,6 @@ install:
 - if [ "$COMPILER" != "" ]; then export CXX=$COMPILER ; fi
     
 script:
+- $CXX --version
 - make && ./.travis.sh
 

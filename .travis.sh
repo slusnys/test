@@ -2,7 +2,7 @@
 
 if [ "$CLANG_TIDY" == 1 ]; then
     /usr/bin/clang-tidy-3.7 race.cpp -- -Iinclude -std=c++11
-    exit 0;
+    exit;
 fi
 
 if [ "$TOOLCHAIN" == "analyze" ]; then

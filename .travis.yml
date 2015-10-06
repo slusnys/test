@@ -85,7 +85,7 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: COMPILER=clang++-3.7 
+      env: COMPILER=clang++-3.7 CLANG_TIDY=1
       addons:
         apt:
           sources:
@@ -106,4 +106,5 @@ install:
 script:
 - $CXX --version
 - make -j3 && ./.travis.sh
+
 

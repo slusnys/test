@@ -10,6 +10,9 @@ using namespace boost::unit_test;
 
 BOOST_AUTO_TEST_CASE(test1)
 {
+  int z = 0;
+  if (z == 0)
+    int x = 1 / z;
   //  std::cout << "Test1" << std::endl;
   BOOST_CHECK(true);
 }

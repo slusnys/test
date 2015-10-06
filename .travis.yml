@@ -4,7 +4,9 @@ matrix:
   fast_finish: true
   include:
     - os: osx
+    
     - os: linux
+      env: COMPILER=g++-5
       addons:
         apt:
           sources:
@@ -12,8 +14,15 @@ matrix:
           packages:
           - gcc-5
           - g++-5
-#     - clang
-    
+
+    - os: linux
+      env: COMPILER=clang
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - clang
 
 before_script:
 - git config --global user.name "Travis-CI"
@@ -21,20 +30,12 @@ before_script:
 - git config --global push.default simple
 
 install:
-- if [ "$CXX" = "g++" ] && [ "$TRAVIS_OS_NAME" == "linux" ]; then export CXX="g++-5" CC="gcc-5"; fi
-# addons:
-#   apt:
-#     sources:
-#     - ubuntu-toolchain-r-test
-#     packages:
-#     - gcc-5
-#     - g++-5
-#     - clang
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then export CXX=COMPILER ; fi
     
 before_install:
    - if [ "$TRAVIS_OS_NAME" == "linux" ]; then (sudo apt-get install -qq libboost-test1.48-dev); fi
 
 script:
+-       $CXX --version
 -        make
 -        ./race
-

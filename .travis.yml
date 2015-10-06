@@ -105,6 +105,6 @@ install:
     
 script:
 - $CXX --version
-- make -j3 && ./.travis.sh
+- make && ./.travis.sh
 
 

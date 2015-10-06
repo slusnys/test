@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$CLANG_TIDY" == 1 ]; then
-    clang-tidy race.cpp -- -Iinclude -std=c++11
+    /usr/bin/clang-tidy-3.7 race.cpp -- -Iinclude -std=c++11
     exit 0;
 fi
 

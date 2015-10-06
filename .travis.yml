@@ -5,8 +5,8 @@ matrix:
   include:
     - os: osx
 
-    - os: osx
-      env: COMPILER=clang++
+    # - os: osx
+    #   env: COMPILER=clang++
 
     - os: linux
       env: COMPILER=g++-5
@@ -17,6 +17,17 @@ matrix:
           packages:
           - gcc-5
           - g++-5
+
+    - os: linux
+      env: COMPILER=g++-5 VALGRIND_ENABLED=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - gcc-5
+          - g++-5
+          - valgrind
 
     
     # todo: we must link with libc++ and compile boost test
@@ -41,6 +52,6 @@ install:
 - if [ "$COMPILER" != "" ]; then export CXX=$COMPILER ; fi
     
 script:
--        $CXX --version
 -        make
--        ./race
+-        if [ "$VALGRIND_ENABLED" == 1 ]; then valgrind ./race ; else ./race ; fi
+

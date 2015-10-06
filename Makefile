@@ -1,6 +1,7 @@
 all: race
 
-CPPFLAGS+=-I/opt/local/include/ -std=c++11 -g -O2 -Wall -Werror -Wno-unused-parameter\
+#-I/opt/local/include/ 
+CPPFLAGS+= -Iinclude -std=c++11 -g -O2 -Wall -Werror -Wno-unused-parameter\
 	-Wno-unused-local-typedef	 -Wno-unknown-warning-option
 
 ifeq ($(TOOLCHAIN),analyze)

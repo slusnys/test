@@ -4,7 +4,10 @@ matrix:
   fast_finish: true
   include:
     - os: osx
-    
+
+    - os: osx
+      env: COMPILER=clang++
+
     - os: linux
       env: COMPILER=g++-5
       addons:
@@ -15,6 +18,7 @@ matrix:
           - gcc-5
           - g++-5
 
+    
     # todo: we must link with libc++ and compile boost test
     # - os: linux
     #   env: COMPILER=clang
@@ -37,5 +41,6 @@ install:
 - if [ "$COMPILER" != "" ]; then export CXX=$COMPILER ; fi
     
 script:
+-        $CXX --version
 -        make
 -        ./race

@@ -119,6 +119,6 @@ install:
     
 script:
 - $CXX --version
-- cmake CMakeLists.txt && make && ./.travis.sh
+- cmake CMakeLists.txt && cmake --build . && ./.travis.sh
 
 

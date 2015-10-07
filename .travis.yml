@@ -134,4 +134,6 @@ script:
 - $CXX --version
 - cmake CMakeLists.txt && cmake --build . && ./.travis.sh
 
+after_success:
+- if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info && lcov --remove coverage.info 'tests/*' '/usr/*' --output-file coverage.info && lcov --list coverage.info && coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
 

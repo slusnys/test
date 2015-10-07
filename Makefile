@@ -1,5 +1,7 @@
 #-I/opt/local/include/ 
-CPPFLAGS+= -I /Users/sslusny/Personal/c++/test/include -std=c++11 -g -O2 -Wall -Werror -pedantic -Wextra -Wno-unused-parameter \
+CURDIR:= $(shell pwd)
+
+CPPFLAGS+= -I $(CURDIR)/include -std=c++11 -g -O2 -Wall -Werror -pedantic -Wextra -Wno-unused-parameter \
 	-Wno-unused-local-typedef -Wno-unknown-warning-option
 
 ifeq ($(TOOLCHAIN),analyze)

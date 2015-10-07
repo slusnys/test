@@ -74,6 +74,7 @@ matrix:
           - g++-5
 
     - os: linux
+      compiler: g++-5    
       env: COMPILER=g++-5 TSAN=1
       addons:
         apt:

@@ -23,7 +23,7 @@ matrix:
       osx_image: xcode7
 
     - os: linux
-      env: COMPILER=g++-4.8
+      env: COMPILER=g++-4.8 COVERAGE=1
       addons:
         apt:
           sources:
@@ -109,7 +109,7 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: COMPILER=clang++-3.7
+      env: COMPILER=clang++-3.7 COVERAGE=1
       addons:
         apt:
           sources:

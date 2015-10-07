@@ -3,11 +3,14 @@
 #include <iostream>
 //#include <boost/test/minimal.hpp>
 
+#include "header.h"
+
 BOOST_AUTO_TEST_SUITE(all)
 
 BOOST_AUTO_TEST_CASE(test1, "test1")
 {
   //  std::cout << "Test1" << std::endl;
+  printHello();
   BOOST_CHECK(true);
 }
 

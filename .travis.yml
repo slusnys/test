@@ -64,7 +64,7 @@ matrix:
           - valgrind
 
     - os: linux
-      env: COMPILER=g++-5 ASAN=1
+      env: ASAN=1
       addons:
         apt:
           sources:
@@ -118,6 +118,8 @@ install:
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install cmake); fi
     
 script:
+- whereis $CXX
+- which $CXX
 - $CXX --version
 - cmake CMakeLists.txt && cmake --build . && ./.travis.sh
 

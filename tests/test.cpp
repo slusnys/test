@@ -1,27 +1,10 @@
 #define BOOST_TEST_MODULE MyTest
 #include <boost/test/unit_test.hpp>
 #include <iostream>
-//#include <boost/test/minimal.hpp>
+#include <atomic>
+#include <thread>
 
 #include "header.h"
-
-BOOST_AUTO_TEST_SUITE(all)
-
-BOOST_AUTO_TEST_CASE(test1, "test1")
-{
-  //  std::cout << "Test1" << std::endl;
-  printHello();
-  BOOST_CHECK(true);
-}
-
-
-/*
-#include <atomic>
-#include <memory>
-#include <functional>
-#include <assert.h>
-#include <thread>
-#include <iostream>
 
 using namespace std;
 
@@ -44,13 +27,19 @@ void thread2()
   }  
 }
 
-int main()
+BOOST_AUTO_TEST_SUITE(all)
+
+BOOST_AUTO_TEST_CASE(test1, "test1")
+{
+  printHello();
+}
+
+BOOST_AUTO_TEST_CASE(test2, "test2")
 {
   thread t1(thread1);
   thread t2(thread2);
   t1.join();
-  t2.join();
+  t2.join();  
 }
-*/
 
 BOOST_AUTO_TEST_SUITE_END()

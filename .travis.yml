@@ -53,7 +53,7 @@ matrix:
     #       - g++-5
 
     - os: linux
-      env: COMPILER=g++-5 COVERAGE=1
+      env: COMPILER=g++-5
       addons:
         apt:
           sources:
@@ -133,24 +133,24 @@ install:
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install cmake); fi
     
 script:
-- pwd
-- find . -name "*.gc*"
-- if [ "$COVERAGE" == 1 ]; then lcov --version ; fi
+#- pwd
+#- find . -name "*.gc*"
+#- if [ "$COVERAGE" == 1 ]; then lcov --version ; fi
 - $CXX --version
 - cmake CMakeLists.txt && cmake --build . && ./.travis.sh
-- find . -name "*.gc*"
-- if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
-- if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi
-- if [ "$COVERAGE" == 1 ]; then lcov --list coverage.info ; fi
-- if [ "$COVERAGE" == 1 ]; then coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
-- if [ "$COVERAGE" == 1 ]; then cat coverage.info ; fi
-
-# after_success:
-# - pwd
 # - find . -name "*.gc*"
 # - if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
 # - if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi
 # - if [ "$COVERAGE" == 1 ]; then lcov --list coverage.info ; fi
 # - if [ "$COVERAGE" == 1 ]; then coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
 # - if [ "$COVERAGE" == 1 ]; then cat coverage.info ; fi
+
+after_success:
+- pwd
+- find . -name "*.gc*"
+- if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
+- if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi
+- if [ "$COVERAGE" == 1 ]; then lcov --list coverage.info ; fi
+- if [ "$COVERAGE" == 1 ]; then coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
+- if [ "$COVERAGE" == 1 ]; then cat coverage.info ; fi
 

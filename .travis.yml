@@ -110,7 +110,7 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: COMPILER=clang++-3.7 COVERAGE=1
+      env: COMPILER=clang++-3.7 TSAN=1
       addons:
         apt:
           sources:
@@ -122,15 +122,16 @@ matrix:
 
     - os: linux
       compiler: clang
-      env: COMPILER=clang++-3.8 TSAN=1
+      env: COMPILER=clang++-3.7 COVERAGE=1
       addons:
         apt:
           sources:
           - ubuntu-toolchain-r-test
-          - llvm-toolchain-precise-3.8
+          - llvm-toolchain-precise-3.7
           packages:
-          - clang-3.8
+          - clang-3.7
           - libstdc++-5-dev
+
 
 before_script:
 - git config --global user.name "Travis-CI"

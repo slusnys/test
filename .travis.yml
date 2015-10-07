@@ -136,13 +136,19 @@ script:
 - if [ "$COVERAGE" == 1 ]; then lcov --version ; fi
 - $CXX --version
 - cmake CMakeLists.txt && cmake --build . && ./.travis.sh
-
-after_success:
-- pwd
 - find . -name "*.gc*"
 - if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
 - if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi
 - if [ "$COVERAGE" == 1 ]; then lcov --list coverage.info ; fi
 - if [ "$COVERAGE" == 1 ]; then coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
 - if [ "$COVERAGE" == 1 ]; then cat coverage.info ; fi
+
+# after_success:
+# - pwd
+# - find . -name "*.gc*"
+# - if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
+# - if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi
+# - if [ "$COVERAGE" == 1 ]; then lcov --list coverage.info ; fi
+# - if [ "$COVERAGE" == 1 ]; then coveralls-lcov --repo-token "YJN4JZgnmetkInkggQWBYCNJn3cZelgsk" coverage.info ; fi
+# - if [ "$COVERAGE" == 1 ]; then cat coverage.info ; fi
 

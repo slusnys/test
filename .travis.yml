@@ -64,7 +64,7 @@ matrix:
           - valgrind
 
     - os: linux
-      env: ASAN=1
+      env: COMPILER=g++-5 ASAN=1
       addons:
         apt:
           sources:

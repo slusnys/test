@@ -1,7 +1,5 @@
-all: race
-
 #-I/opt/local/include/ 
-CPPFLAGS+= -Iinclude -std=c++11 -g -O2 -Wall -Werror -pedantic -Wextra -Wno-unused-parameter \
+CPPFLAGS+= -I /Users/sslusny/Personal/c++/test/include -std=c++11 -g -O2 -Wall -Werror -pedantic -Wextra -Wno-unused-parameter \
 	-Wno-unused-local-typedef -Wno-unknown-warning-option
 
 ifeq ($(TOOLCHAIN),analyze)
@@ -16,7 +14,8 @@ ifeq ($(ASAN),1)
 	CPPFLAGS+=-fsanitize=address
 endif
 
-race: race.cpp
+all:
+	$(MAKE) -C tests CPPFLAGS="$(CPPFLAGS)"
 
 # todo: consider compiling with -fno-omit-frame-pointer -fno-optimize-sibling-calls -fno-inline to improve the
 # usefulness of valgrind's error output

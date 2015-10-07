@@ -120,6 +120,18 @@ matrix:
           - clang-3.7
           - libstdc++-5-dev
 
+    - os: linux
+      compiler: clang
+      env: COMPILER=clang++-3.8 TSAN=1
+      addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-precise-3.8
+          packages:
+          - clang-3.8
+          - libstdc++-5-dev
+
 before_script:
 - git config --global user.name "Travis-CI"
 - git config --global user.email "travis@ci.net"

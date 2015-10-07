@@ -131,11 +131,14 @@ install:
 - if [ "$TRAVIS_OS_NAME" == "osx" ]; then (brew install cmake); fi
     
 script:
+- pwd
+- find . -name "*.gc*"
 - if [ "$COVERAGE" == 1 ]; then lcov --version ; fi
 - $CXX --version
 - cmake CMakeLists.txt && cmake --build . && ./.travis.sh
 
 after_success:
+- pwd
 - find . -name "*.gc*"
 - if [ "$COVERAGE" == 1 ]; then lcov --directory . --capture --output-file coverage.info ; fi
 - if [ "$COVERAGE" == 1 ]; then lcov --remove coverage.info '/usr/*' --output-file coverage.info ; fi

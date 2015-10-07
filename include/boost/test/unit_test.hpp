@@ -33,8 +33,6 @@ DEALINGS IN THE SOFTWARE.
 #define BOOST_BINDLIB_BOOST_UNIT_TEST_HPP
  
 #include "../config.hpp"
-#include <atomic>
-#include <mutex>
 #define CATCH_CONFIG_PREFIX_ALL
 #define CATCH_CONFIG_RUNNER
 #include "../../../lib/catch/single_include/catch.hpp"

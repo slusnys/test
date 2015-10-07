@@ -62,7 +62,7 @@ matrix:
           - gcc-5
           - g++-5
           - valgrind
-          - lcov
+          - lcov-5
 
     - os: linux
       env: COMPILER=g++-5 VALGRIND_ENABLED=1
